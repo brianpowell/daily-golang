@@ -44,8 +44,11 @@ func (c *Client) MeetingTokenGetByID(token string) (TokenResponse, error) {
 	return out, err
 }
 
-func (c *Client) MeetingTokenPost(bod TokenPost) (TokenAuthResponse, error) {
+func (c *Client) MeetingTokenPost(bod *TokenProperties) (TokenAuthResponse, error) {
 	out := TokenAuthResponse{}
-	err := c.makeRequest(http.MethodPost, "/meeting-tokens", bod, &out)
+	temp := TokenPost{
+		Properties: bod,
+	}
+	err := c.makeRequest(http.MethodPost, "/meeting-tokens", temp, &out)
 	return out, err
 }
