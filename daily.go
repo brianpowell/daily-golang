@@ -2,6 +2,7 @@ package daily
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 )
 
@@ -32,6 +33,7 @@ func NewClient(config Config) (*Client, error) {
 	// Generate some values - only DomainLink now
 	c.DomainLink = strings.Replace(DomainLink, "{domain}", config.Domain, 1)
 	c.Config = config
+	fmt.Println("Daily.com Domain: ", c.DomainLink)
 	return c, nil
 }
 
