@@ -29,9 +29,11 @@ type (
 	}
 
 	TokenProperties struct {
-		NotBefore       int `json:"nbf,omitempty"`
-		Expires         int `json:"exp,omitempty"`
-		MaxParticipants int `json:"max_participants,omitempty"`
+		RoomName        string `json:"room_name,omitempty"`
+		IsOwner         bool   `json:"is_owner,omitempty"`
+		NotBefore       int    `json:"nbf,omitempty"`
+		Expires         int    `json:"exp,omitempty"`
+		MaxParticipants int    `json:"max_participants,omitempty"`
 		// TODO: Model the rest of values from https://docs.daily.co/reference/rest-api/meeting-tokens/create-meeting-token
 	}
 )
