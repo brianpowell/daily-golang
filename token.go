@@ -38,14 +38,14 @@ type (
 	}
 )
 
-func (c *Client) MeetingTokenGetByID(token string) (TokenAuthResponse, error) {
-	out := TokenAuthResponse{}
+func (c *Client) MeetingTokenGetByID(token string) (TokenResponse, error) {
+	out := TokenResponse{}
 	err := c.makeRequest(http.MethodGet, "/meeting-tokens/"+token, nil, &out)
 	return out, err
 }
 
-func (c *Client) MeetingtokenPost(bod TokenPost) (TokenResponse, error) {
-	out := TokenResponse{}
+func (c *Client) MeetingTokenPost(bod TokenPost) (TokenAuthResponse, error) {
+	out := TokenAuthResponse{}
 	err := c.makeRequest(http.MethodPost, "/meeting-tokens", bod, &out)
 	return out, err
 }
