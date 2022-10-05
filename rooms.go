@@ -22,7 +22,7 @@ type (
 	}
 
 	RoomPost struct {
-		Name string `json:"name"`
+		Name string `json:"name,omitempty"`
 		RoomPut
 	}
 
@@ -82,8 +82,8 @@ func (c *Client) RoomsPut(id string, bod RoomPut) (Room, error) {
 	return out, err
 }
 
-func (c *Client) RoomsDelete(id string) (Room, error) {
-	out := Room{}
+func (c *Client) RoomsDelete(id string) (map[string]interface{}, error) {
+	out := map[string]interface{}{}
 	err := c.makeRequest(http.MethodDelete, "/rooms/"+id, nil, &out)
 	return out, err
 }
