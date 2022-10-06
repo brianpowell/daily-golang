@@ -27,8 +27,8 @@ type (
 	}
 
 	RoomPut struct {
-		Privacy    string         `json:"privacy,omitempty"`
-		Properties RoomProperties `json:"properties,omitempty"`
+		Privacy    string          `json:"privacy,omitempty"`
+		Properties *RoomProperties `json:"properties,omitempty"`
 	}
 
 	RoomProperties struct {
