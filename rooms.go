@@ -70,13 +70,13 @@ func (c *Client) RoomsGetByID(name string) (Room, error) {
 	return out, err
 }
 
-func (c *Client) RoomsPost(bod RoomPost) (Room, error) {
+func (c *Client) RoomsPost(bod *RoomPost) (Room, error) {
 	out := Room{}
 	err := c.makeRequest(http.MethodPost, "/rooms", bod, &out)
 	return out, err
 }
 
-func (c *Client) RoomsPut(id string, bod RoomPut) (Room, error) {
+func (c *Client) RoomsPut(id string, bod *RoomPut) (Room, error) {
 	out := Room{}
 	err := c.makeRequest(http.MethodPut, "/rooms/"+id, bod, &out)
 	return out, err

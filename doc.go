@@ -19,6 +19,7 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 	if method == http.MethodPost || method == http.MethodPut {
 		jsonData, _ := json.Marshal(body)
 		postBody = bytes.NewBuffer(jsonData)
+		fmt.Println(postBody.String())
 	}
 
 	// Handle the Query String
