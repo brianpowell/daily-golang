@@ -12,7 +12,7 @@ type (
 	}
 
 	RoomList struct {
-		Total int    `json:"total_cost"`
+		Total int    `json:"total_count"`
 		Data  []Room `json:"data"`
 	}
 
