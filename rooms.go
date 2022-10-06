@@ -11,6 +11,11 @@ type (
 		StartingAfter string `url:"starting_after,omitempty"`
 	}
 
+	RoomList struct {
+		Total int    `json:"total_cost"`
+		Data  []Room `json:"data"`
+	}
+
 	Room struct {
 		ID          string         `json:"id"`          // "d61cd7b2-a273-42b4-89bd-be763fd562c1",
 		Name        string         `json:"name"`        // "hello",
