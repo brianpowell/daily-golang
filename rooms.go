@@ -63,8 +63,8 @@ type (
 	}
 )
 
-func (c *Client) RoomsGet(opt RoomOptions) ([]Room, error) {
-	out := []Room{}
+func (c *Client) RoomsGet(opt RoomOptions) (RoomList, error) {
+	out := RoomList{}
 	err := c.makeRequest(http.MethodGet, "/rooms", opt, &out)
 	return out, err
 }
