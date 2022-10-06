@@ -15,7 +15,7 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 
 	var queryString string
 	// Handle the Query String
-	if method == http.MethodGet && body != nil {
+	if body != nil {
 		v, _ := query.Values(body)
 		queryString = "?" + v.Encode()
 	}
@@ -29,9 +29,6 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 
 	// Headers
 	req.Header.Add("Authorization", "Bearer "+c.Config.Token)
-	if method == http.MethodPost || method == http.MethodPut {
-		req.Header.Add("Content-Type", "application/json")
-	}
 
 	// Make actual request
 	res, err := http.DefaultClient.Do(req)
