@@ -66,6 +66,7 @@ func (c *Client) makeBodyRequest(method string, endpoint string, body interface{
 	}
 
 	// Headers
+	fmt.Println("Token", c.Config.Token)
 	req.Header.Add("Authorization", "Bearer "+c.Config.Token)
 	req.Header.Add("Content-Type", "application/json")
 
