@@ -35,6 +35,9 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 		return err
 	}
 
+	fmt.Println("Stop", req, err)
+	return nil
+
 	// Headers
 	req.Header.Add("Authorization", "Bearer "+c.Config.Token)
 	if method == http.MethodPost || method == http.MethodPut {
