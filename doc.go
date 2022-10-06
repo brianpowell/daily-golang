@@ -20,7 +20,7 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 		jsonData, _ := json.Marshal(body)
 		postBody = bytes.NewBuffer(jsonData)
 	} else {
-		postBody = nil
+		postBody = bytes.NewBuffer([]byte(""))
 	}
 
 	// Handle the Query String
