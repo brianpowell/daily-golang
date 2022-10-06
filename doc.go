@@ -29,7 +29,7 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 	}
 
 	// Build the new request
-	req, err := http.NewRequest(method, API+endpoint+queryString, postBody)
+	req, err := http.NewRequest(method, API+endpoint+queryString, nil)
 	if err != nil {
 		fmt.Printf("client: could not create request: %s\n", err)
 		return err
