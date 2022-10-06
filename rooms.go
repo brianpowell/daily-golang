@@ -1,7 +1,6 @@
 package daily
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -73,14 +72,12 @@ func (c *Client) RoomsGetByID(name string) (Room, error) {
 
 func (c *Client) RoomsPost(bod RoomPost) (Room, error) {
 	out := Room{}
-	fmt.Println("Body", bod)
-	err := c.makeBodyRequest(http.MethodPost, "/rooms", &bod, &out)
-	fmt.Println("Body Out", out)
+	err := c.makeRequest(http.MethodPost, "/rooms", &bod, &out)
 	return out, err
 }
 
-func (c *Client) RoomsDelete(name string) (map[string]interface{}, error) {
+func (c *Client) RoomsDelete(id string) (map[string]interface{}, error) {
 	out := map[string]interface{}{}
-	err := c.makeRequest(http.MethodDelete, "/rooms/"+name, nil, &out)
+	err := c.makeRequest(http.MethodDelete, "/rooms/"+id, nil, &out)
 	return out, err
 }
