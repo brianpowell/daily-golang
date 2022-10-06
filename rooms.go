@@ -74,18 +74,13 @@ func (c *Client) RoomsGetByID(name string) (Room, error) {
 func (c *Client) RoomsPost(bod RoomPost) (Room, error) {
 	out := Room{}
 	fmt.Println("Body", bod)
-	err := c.makeRequest(http.MethodPost, "/rooms", &bod, &out)
+	err := c.makeBodyRequest(http.MethodPost, "/rooms", &bod, &out)
+	fmt.Println("Body Out", out)
 	return out, err
 }
 
-func (c *Client) RoomsPut(id string, bod RoomPut) (Room, error) {
-	out := Room{}
-	err := c.makeRequest(http.MethodPut, "/rooms/"+id, &bod, &out)
-	return out, err
-}
-
-func (c *Client) RoomsDelete(id string) (map[string]interface{}, error) {
+func (c *Client) RoomsDelete(name string) (map[string]interface{}, error) {
 	out := map[string]interface{}{}
-	err := c.makeRequest(http.MethodDelete, "/rooms/"+id, nil, &out)
+	err := c.makeRequest(http.MethodDelete, "/rooms/"+name, nil, &out)
 	return out, err
 }
