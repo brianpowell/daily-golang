@@ -60,6 +60,5 @@ func (c *Client) makeRequest(method string, endpoint string, body interface{}, o
 	fmt.Printf("client: response body: %s\n", resBody)
 
 	// Marshal out the response
-	json.Unmarshal(resBody, &out)
-	return nil
+	return json.Unmarshal(resBody, &out)
 }
