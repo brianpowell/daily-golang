@@ -27,13 +27,31 @@ type (
 	TokenPost struct {
 		Properties *TokenProperties `json:"properties,omitempty"`
 	}
-
+	
+	TokenPermission struct {
+		HasPresence bool `json:"hasPresence,omitempty"`
+		CanSend bool `json:"canSend,omitempty"`
+	}
 	TokenProperties struct {
 		RoomName        string `json:"room_name,omitempty"`
 		IsOwner         bool   `json:"is_owner,omitempty"`
 		NotBefore       int    `json:"nbf,omitempty"`
 		Expires         int    `json:"exp,omitempty"`
 		MaxParticipants int    `json:"max_participants,omitempty"`
+		EnableRecording bool   `json:"enable_recording,omitempty"`
+		EnableScreenShare bool `json:"enable_screenshare,omitempty"`
+		EjectAtTokenExp bool `json:"eject_at_token_exp,omitempty"`
+		EjectAfterElapsed int `json:"eject_after_elapsed,omitempty"`
+		UserID string `json:"user_id,omitempty"`
+		UserName string `json:"user_name,omitempty"`
+		StartVideoOff bool `json:"start_video_off,omitempty"`
+		StartAudioOff bool `json:"start_audio_off,omitempty"`
+		EnableTerseLogging bool `json:"enable_terse_logging,omitempty"`
+		CloseTabOnExit bool `json:"close_tab_on_exit,omitempty"`
+		RedirectOnMeetingExit string `json:"redirect_on_meeting_exit,omitempty"`
+		Lang string `json:"lang,omitempty"`
+		Permissions *TokenPermission `json:"permissions,omitempty"`
+
 		// TODO: Model the rest of values from https://docs.daily.co/reference/rest-api/meeting-tokens/create-meeting-token
 	}
 )
