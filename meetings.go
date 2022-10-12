@@ -28,11 +28,11 @@ type (
 	// Query Options
 	MeetingOptions struct {
 		Room string `json:"room,omitempty"`
-		TimeFrameStart int `json:"TimeFrameStart,omitempty"`
-		TimeFrameEnd int `json:"TimeFrameEnd,omitempty"`
+		TimeFrameStart int `json:"timeframe_start,omitempty"`
+		TimeFrameEnd int `json:"timeframe_end,omitempty"`
 		Limit int `json:"limit,omitempty"`
-		StartingAfter string `json:"StartingAfter,omitempty"`
-		EndingBefore string `json:"EndingBefore,omitempty"`
+		StartingAfter string `json:"starting_after,omitempty"`
+		EndingBefore string `json:"ending_before,omitempty"`
 	}
 // Model these https://docs.daily.co/reference/rest-api/meetings/get-meeting-information
 )
