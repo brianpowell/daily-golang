@@ -36,6 +36,29 @@ type (
 		Properties *RoomProperties `json:"properties,omitempty"`
 	}
 
+	RecordingBucket struct {
+		BucketName string `json:"bucket_name,omitempty"`
+		BucketReigon string `json:"bucket_region,omitempty"`
+		ARNRole string `json:"assume_arn_role,omitempty"`
+		AllowApiAccess bool `json:"allow_api_access,omitempty"`
+
+	}
+
+	StreamEndpoint struct {
+		Name string `json:"name,omitempty"`
+		Type string `json:"type,omitempty"`
+		HlsConfig struct {
+			SaveHlsRecording bool `json:"save_hls_recording,omitempty"`
+			Storage struct {
+				Bucket *RecordingBucket `json:"recording_bucket,omitempty"`
+				Path string `json:"path,omitempty"`
+			} `json:"storage,omitempty"`
+		} `json:"hls_config,omitempty"`
+		RtmpConfig struct {
+			URL string `json:"url,omitempty"`
+
+		} `json:"rtmp_config,omitempty"`
+	}
 	RoomProperties struct {
 		NotBefore                int    `json:"nbf,omitempty"`
 		Expires                  int    `json:"exp,omitempty"`
@@ -59,6 +82,16 @@ type (
 		EnableAdvancedChat       bool   `json:"enable_advanced_chat,omitempty"`
 		EnableHiddenParticipants bool   `json:"enable_hidden_participants,omitempty"`
 		EnableMeshSFU            bool   `json:"enable_mesh_sfu,omitempty"`
+		OptomizeLargeCalls 			 bool   `json:"experiemental_optomize_large_calls,omitempty"`
+		Lang				 						 string `json:"lang,omitempty"`
+		MeetingJoinHook 				 string `json:"meeting_join_hook,omitempty"`
+		SignalingImplementation  string `json:"signaling_imp,omitempty"`
+		Geo 										 string `json:"geo,omitempty"`
+		RtmpGeo 								 string `json:"rtmp_geo,omitempty"`
+		Bucket					*RecordingBucket `json:"recording_bucket,omitempty"`
+		EnableTerseLogging 			 bool   `json:"enable_terse_logging,omitempty"`
+		StreamingEndpoints []StreamEndpoint `json:"streaming_endpoints,omitempty"`
+		Permissions *TokenPermission `json:"permissions,omitempty"`
 		// TODO: Model the rest of values from https://docs.daily.co/reference/rest-api/rooms/create-room
 	}
 )
