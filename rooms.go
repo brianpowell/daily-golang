@@ -80,6 +80,7 @@ type (
 		EnableAdvancedChat       bool             `json:"enable_advanced_chat,omitempty"`
 		EnableHiddenParticipants bool             `json:"enable_hidden_participants,omitempty"`
 		EnableMeshSFU            bool             `json:"enable_mesh_sfu,omitempty"`
+		SFUSwitchOver            float32          `json:"sfu_switchover,omitempty"`
 		OptomizeLargeCalls       bool             `json:"experiemental_optomize_large_calls,omitempty"`
 		Lang                     string           `json:"lang,omitempty"`
 		MeetingJoinHook          string           `json:"meeting_join_hook,omitempty"`
